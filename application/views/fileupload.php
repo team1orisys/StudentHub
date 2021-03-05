@@ -23,9 +23,12 @@
 <div class="container">	
 <form enctype="multipart/form-data" action="<?php echo base_url()?>main/fileupload" method="post" class="mt-5 py-5" >
 <center>
-	<label class="form-label text-white h1" for="customFile">Covid protocol</label>
+	<input type="text" name="subject"placeholder="Subject name"required>
+	<input type="date" name="date"placeholder="date"required>
+
+	<label class="form-label text-white h1" for="customFile">Course material</label>
 		<div class="col-6">
-		<input type="file"name="pic" class="form-control py-2">
+		<input type="file"name="file" class="form-control py-2">
 			<div class="mt-5">	
 				<a href="<?php echo base_url()?>main/adminhome" class="btn btn-primary me-3 ">Back</a>
 				<input type="submit" value="upload" class="  btn btn-warning">

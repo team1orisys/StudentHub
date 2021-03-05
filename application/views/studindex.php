@@ -50,7 +50,7 @@ The above copyright notice and this permission notice shall be included in all c
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="<?php echo base_url()?>main/student">
+            <a class="nav-link" href="<?php echo base_url()?>main/updatestud">
               <i class="material-icons">person</i>
               <p>Student Profile</p>
             </a>

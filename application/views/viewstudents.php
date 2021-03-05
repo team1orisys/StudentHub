@@ -176,24 +176,30 @@ The above copyright notice and this permission notice shall be included in all c
                   <h4 class="card-title">Add Profile</h4>
                 </div>
                 <div class="card-body">
-                  <form action="<?php echo base_url()?>main/studinsert" method="post">
+                  <form action="<?php echo base_url()?>main/editstudent" method="post">
+                      <?php
+                        if(isset($user_data))
+                          {
+                           foreach($user_data->result() as $row1)
+                            {
+                    ?>
                     <div class="row"> 
                       <div class="col-md-5">
                         <div class="form-group">
                           <label class="bmd-label-floating">Name</label>
-                          <input type="text" name="name" required="" class="form-control">
+                          <input type="text" name="name" class="form-control"  value="<?php echo $row1->name;?>">                        
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
                           <label class="bmd-label-floating">Admission number</label>
-                          <input type="text" name="ad_no" required="" class="form-control">
+                          <input type="text" name="ad_no" value="<?php echo $row1->ad_no;?>" required="" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Admission date</label>
-                          <input type="date" name="ad_date" required="" class="form-control">
+                          <input type="date" name="ad_date" value="<?php echo $row1->ad_date;?>"required="" class="form-control">
                         </div>
                       </div>
                     </div>
@@ -201,20 +207,20 @@ The above copyright notice and this permission notice shall be included in all c
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Rollno</label>
-                          <input type="text" name="rollno" required="" class="form-control">
+                          <input type="text" name="rollno" value="<?php echo $row1->rollno;?>" required="" class="form-control">
                         </div>
                       </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Date of Birth</label>
-                          <input type="date" name="dob" required class="form-control">
+                          <input type="date" name="dob" value="<?php echo $row1->dob;?>" required class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Aadhar Number</label>
-                          <input type="text" name="aadhar" required class="form-control">
+                          <input type="text" name="aadhar" value="<?php echo $row1->aadhar;?>" required class="form-control">
                         </div>
                       </div>
                     </div>
@@ -222,7 +228,7 @@ The above copyright notice and this permission notice shall be included in all c
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Email</label>`
-                        <input type="email"  name="email" required class="form-control">
+                        <input type="email"  name="email" value="<?php echo $row1->email;?>" required class="form-control">
                         </div>
                       </div>
 

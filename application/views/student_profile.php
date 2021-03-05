@@ -177,45 +177,31 @@ The above copyright notice and this permission notice shall be included in all c
                   <p class="card-category">Complete your profile</p>
                 </div>
                 <div class="card-body">
-                  <form>
+                  <form action="<?php echo base_url()?>main/updateaction" method="post">
+                    <?php
+                        if(isset($user_data))
+                          {
+                           foreach($user_data->result() as $row1)
+                            {
+                    ?>
                     <div class="row">
                       <div class="col-md-5">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Name</label>
-                          <input type="text" class="form-control" disabled>
-                        </div>
-                      </div>
-                      <div class="col-md-3">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Admission number</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Admission date</label>
-                          <input type="email" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Rollno</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
 
+                          <label class="bmd-label-floating">Name</label>
+                          <input type="text" name="name" class="form-control"  value="<?php echo $row1->name;?>">
+                        </div>
+                      </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Date of Birth</label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="dob" class="form-control"  value="<?php echo $row1->dob;?>">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Aadhar Number</label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="aadhar" class="form-control"  value="<?php echo $row1->aadhar;?>">
                         </div>
                       </div>
                     </div>
@@ -223,18 +209,7 @@ The above copyright notice and this permission notice shall be included in all c
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Email</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Gender</label>
-                          <input type="radio" id="female" name="gender" value="female" >
-                           <label for="female">female</label>
-                          <input type="radio" id="male" name="gender" value="male">
-                        <label for="male">male</label>  
-
+                          <input type="email" name="email" class="form-control"  value="<?php echo $row1->email;?>">
                         </div>
                       </div>
                     </div>
@@ -244,7 +219,7 @@ The above copyright notice and this permission notice shall be included in all c
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Address</label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="address"  class="form-control"  value="<?php echo $row1->address;?>">
                         </div>
                       </div>
                     </div>
@@ -252,19 +227,19 @@ The above copyright notice and this permission notice shall be included in all c
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Father's Name</label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="father" class="form-control"  value="<?php echo $row1->father;?>">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Mother's Name</label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="mother" class="form-control"  value="<?php echo $row1->mother;?>">
                         </div>
                       </div>
                         <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Student's Phone(mob)</label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="phone" class="form-control"  value="<?php echo $row1->phone;?>">
                         </div>
                       </div>
                     </div>
@@ -273,41 +248,28 @@ The above copyright notice and this permission notice shall be included in all c
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Parent's Phone</label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="p_phone" class="form-control"  value="<?php echo $row1->p_phone;?>">
                         </div>
                       </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Religion</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                        <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Caste</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-
+                      
 
                       <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Blood group</label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="blood" class="form-control"  value="<?php echo $row1->blood;?>">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Annual income</label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="income" class="form-control"  value="<?php echo $row1->income;?>">
                         </div>
                       </div>
                         <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Nationality</label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="nationality"  value="<?php echo $row1->nationality;?>" class="form-control">
                         </div>
                       </div>
                     </div>
@@ -317,19 +279,19 @@ The above copyright notice and this permission notice shall be included in all c
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">State</label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="state" class="form-control"  value="<?php echo $row1->state;?>">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">District</label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="district"  value="<?php echo $row1->district;?>"class="form-control">
                         </div>
                       </div>
                         <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Taluk</label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="taluk" class="form-control"  value="<?php echo $row1->taluk;?>">
                         </div>
                       </div>
                     </div>
@@ -338,102 +300,48 @@ The above copyright notice and this permission notice shall be included in all c
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Block</label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="block" value="<?php echo $row1->block;?>" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Panchayath</label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="panchayath"  value="<?php echo $row1->panchayath;?>" class="form-control">
                         </div>
                       </div>
-                        <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Nationality</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                    </div>
                     <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Highest Qualification</label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="h_qualification"  value="<?php echo $row1->h_qualification;?>" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Year of Passing</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                        <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">PG Mark(%)</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">UG Mark(%)</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">HSC Mark(%)</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                        <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">SSLC Mark(%)</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Project Name</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Batch</label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="passingdate"  value="<?php echo $row1->passingdate;?>" class="form-control">
                         </div>
                       </div>
                         <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Domain Knowledge</label>
-                          <input type="text" class="form-control">
+                          <input type="text"  name="skills" value="<?php echo $row1->skills;?>" class="form-control">
                         </div>
                       </div>
                     </div>
-            
-                  
-                    <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                     <input type="hidden" name="id" value="<?php echo $row1->id;?>">
+                           
+                    <input type="submit" name="update"  value="Update" class="btn btn-primary pull-right">
+                      <?php
+            }         
+             }
+             ?>
                     <div class="clearfix"></div>
+            
                   </form>
                 </div>
               </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card card-profile">
-                <div class="card-avatar">
-                  
-                </div>
-                
-                  <p class="card-description">
-                    Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
-                  </p>
-                  <a href="javascript:;" class="btn btn-primary btn-round">Follow</a>
-                </div>
+           
               </div>
             </div>
           </div>
