@@ -68,14 +68,17 @@ class mainmodel extends CI_model
 
     public function insert_leave($a)
   {
-    $this->db->insert("leaves",$a);
+      $this->db->insert("leaves",$a);
   }
-
-	/*@function name:studinsert**
-     *@function:inserting student details**
-     *@module:trainer
+ 
+/*@function name:studinsert**
+    *@function:inserting student details**
+    @module:student
     *@author:Varsha S
     **@date:05/03/2021**/
+  
+
+
 	public function studinsert($a,$b)
 	{
 		
@@ -148,10 +151,17 @@ return $qry;
 /***@function:viewing leave application***/
 public function leaveview()
 {
-$this->db->select('*');
-$qry=$this->db->get("leaves");
-
-return $qry;
+  $this->db->select('*');
+  $this->db->join('student','student.loginid=leaves.sid','inner');
+  $qry=$this->db->get("leaves");
+  return $qry;
+}
+public function leaveview2()
+{
+  $this->db->select('*');
+  $this->db->join('trainer','trainer.loginid=tr_leaves.tid','inner');
+  $qry=$this->db->get("tr_leaves");
+  return $qry;
 }
 /**********Add and view mark page
   @asha
@@ -159,18 +169,28 @@ return $qry;
   @module trainer
   @add and view mark
   ********/
+
 public function addmarkaction($a)
 {
 $this->db->insert("performance",$a);
 }
 
 
-public function viewmark()
+public function viewmarks($id)
 {
-       $this->db->select('*');
-$qry=$this->db->get("performance");
-       return $qry;
+      $this->db->select('*');
+      $qry=$this->db->where("ad_no",$id);
+      $qry=$this->db->get("performance");
+      return $qry;
+  // $this->db->select('*');
+  // $this->db->join('student','student.id=performance.ad_no','inner');
+  // $qry=$this->db->get("performance");
+  // return $qry;
 }
+
+//     $qry=$this->db->get("performance");
+//        return $qry;
+// }
 
         /**********Grievance page
   @asha
@@ -182,7 +202,7 @@ $qry=$this->db->get("performance");
   public function viewgrievance()
 {
        $this->db->select('*');
-$qry=$this->db->get("grievances");
+     $qry=$this->db->get("grievances");
        return $qry;
 }
 
@@ -214,8 +234,68 @@ $a['loginid']=$loginid;
        $qry=$this->db->get("trainer");
        return $qry;
 }
+/*@function name:reject**
+    *@function:updating status of student leave**
+    @module:trainer
+    *@author:Varsha S
+    **@date:06/03/2021**/
 
 
+public function reject($id)
+  {   
+   
+    $this->db->set('status','2');
+    $qry=$this->db->where("l_id",$id);
+    $qry=$this->db->update("leaves");
+    return $qry;
+  }
+  /*@function name:tr_reject**
+    *@function:updating status of trainer leave**
+    @module:admin
+    *@author:Revathy T S
+    **@date:06/03/2021**/
 
+  public function tr_reject($id)
+  {   
+   
+    $this->db->set('status','2');
+    $qry=$this->db->where("t_id",$id);
+    $qry=$this->db->update("tr_leaves");
+    return $qry;
+  }
+ /*@function name:approve**
+    *@function:updating status of student leave**
+    @module:trainer
+    *@author:Varsha S
+    **@date:06/03/2021**/
+
+  public function approve($id)
+  {   
+    $this->db->set('status','1');
+    $qry=$this->db->where("l_id",$id);
+    $qry=$this->db->update("leaves");
+    return $qry;
+  }
+  /*@function name:tr_approve**
+    *@function:updating status of trainer leave**
+    @module:admin
+    *@author:Revathy T S
+    **@date:06/03/2021**/
+ public function tr_approve($id)
+  {   
+    $this->db->set('status','1');
+    $qry=$this->db->where("t_id",$id);
+    $qry=$this->db->update("tr_leaves");
+    return $qry;
+  }
+ /*@function name:insert_leave2**
+    *@function:inserting  trainer leave**
+    @module:trainer
+    *@author:Revathy T S
+    **@date:06/03/2021**/
+  public function insert_leave2($a)
+  {
+      $this->db->insert("tr_leaves",$a);
+  }
 }
 ?>
