@@ -30,11 +30,11 @@
 <div class="col-6 box mt-5 p-5  ">
 	<h2 class="text-center" style="color:#C8C8C8">Student Hub.com</h2>
 
-<form  action="<?php echo base_url()?>main/" method="post" class="border  border-2 border-light p-5 rounded-bottom rounded">
+<form  action="<?php echo base_url()?>main/loginaction" method="post" class="border  border-2 border-light p-5 rounded-bottom rounded">
       
   <div class="row mb-3">
     <div class="col-sm-10">
-      <input type="email" class="form-control" placeholder="username" name="username" >
+      <input type="text" class="form-control" placeholder="username" name="username" >
     </div>
   </div>
   <div class="row mb-3">

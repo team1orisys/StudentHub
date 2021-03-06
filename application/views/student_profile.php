@@ -44,59 +44,48 @@ The above copyright notice and this permission notice shall be included in all c
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item  ">
-            <a class="nav-link" href="./dashboard.html">
+            <a class="nav-link" href="<?php echo base_url()?>main/studindex">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
           <li class="nav-item active ">
-            <a class="nav-link" href="./user.html">
+            <a class="nav-link" href="<?php echo base_url()?>main/updatestud">
               <i class="material-icons">person</i>
-              <p>User Profile</p>
+              <p>Profile</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./tables.html">
+            <a class="nav-link" href="<?php echo base_url()?>main/viewmark">
               <i class="material-icons">content_paste</i>
-              <p>Table List</p>
+              <p>Results</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./typography.html">
+            <a class="nav-link" href="<?php echo base_url()?>main/grievance">
               <i class="material-icons">library_books</i>
-              <p>Typography</p>
+              <p>Grievance</p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="./icons.html">
               <i class="material-icons">bubble_chart</i>
-              <p>Icons</p>
+              <p>Rules & Regulations</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./map.html">
-              <i class="material-icons">location_ons</i>
-              <p>Maps</p>
+            <a class="nav-link" href="<?php echo base_url()?>main/leaveapplication">
+              <i class="material-icons">home</i>
+              <p>Leave Management</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./notifications.html">
+            <a class="nav-link" href="<?php echo base_url()?>main/pdf">
               <i class="material-icons">notifications</i>
-              <p>Notifications</p>
+              <p>Study materials</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./rtl.html">
-              <i class="material-icons">language</i>
-              <p>RTL Support</p>
-            </a>
-          </li>
-          <li class="nav-item active-pro ">
-            <a class="nav-link" href="./upgrade.html">
-              <i class="material-icons">unarchive</i>
-              <p>Upgrade to PRO</p>
-            </a>
-          </li>
+
         </ul>
       </div>
     </div>

@@ -53,7 +53,14 @@
                                 
                             </div>
                         </div>
-            
+                        <div class="form-row">
+                            <div class="name">admission number</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="text" name="ad_no" placeholder="Enter the admission number" >
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-row">
                             <div class="name">subject1</div>
                             <div class="value">

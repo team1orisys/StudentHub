@@ -14,7 +14,7 @@
 	<table>
 		<thead>
 			<tr>
-				<td>Admission number</td>
+				<td>Trainer id</td>
 				<td>Name</td>
 				<th>Leave type</th>
 				<th>From</th>
@@ -33,7 +33,7 @@
 					{
 		?>
 						<tr> 
-							<td><?php echo $row->ad_no;?>
+							<td><?php echo $row->id;?>
 							<td><?php echo $row->name;?></td>
 							<td><?php echo $row->leave_type;?></td>
 							<td><?php echo $row->from_date;?></td>
@@ -46,22 +46,22 @@
 			  						{
 			  							?>
 			  							<td>Approved</td>
-			  							<td><a href="<?php echo base_url()?>main/reject/<?php echo $row->l_id;?>">reject</a></td>
+			  							<td><a href="<?php echo base_url()?>main/tr_reject/<?php echo $row->t_id;?>">reject</a></td>
 			  							<?php
 			  						}
 			  						elseif($row->status==2)
 			  						{
 			  							?>
 			  							<td>rejected</td>
-			  							<td><a href="<?php echo base_url()?>main/approve/<?php echo $row->l_id;?>">approve</a></td>
+			  							<td><a href="<?php echo base_url()?>main/tr_approve/<?php echo $row->t_id;?>">approve</a></td>
 			  							<?php
 			  						}
 			  						else
 			  						{
 			  							?>
 
-			  					<td><a href="<?php echo base_url()?>main/approve/<?php echo $row->l_id;?>">approve</a></td>
-			  					<td><a href="<?php echo base_url()?>main/reject/<?php echo $row->l_id;?>">reject</a></td>
+			  					<td><a href="<?php echo base_url()?>main/tr_approve/<?php echo $row->t_id;?>">approve</a></td>
+			  					<td><a href="<?php echo base_url()?>main/tr_reject/<?php echo $row->t_id;?>">reject</a></td>
 			  				
 			  				<?php
 			  			}

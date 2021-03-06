@@ -21,7 +21,6 @@
 <body>	
 <table>
 			<thead>
-			  <tr>	
 			  <th>Assesments</th>
 			  <th>subject1</th>
 			  <th>subject1mark</th>
@@ -41,12 +40,12 @@
 			  </tr>	
 			</thead>
 			<tbody>
-				<?php
-			        if($n->num_rows()>0)  
-			  		{
-			  			foreach($n->result() as $row)
-			  			{
-			  				?>
+				    <?php
+                        if(isset($user_data))
+                          {
+                           foreach($user_data->result() as $row)
+                            {
+                    ?>
 			  				<tr>
 			  					<td><?php echo $row->assesment;?></td>
 			  					<td><?php echo $row->sub1;?></td>

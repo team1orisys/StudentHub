@@ -56,14 +56,14 @@ The above copyright notice and this permission notice shall be included in all c
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="/tables.html">
+            <a class="nav-link" href="<?php echo base_url()?>main/selectadno">
               <i class="material-icons">content_paste</i>
-              <p>Table List</p>
+              <p>Results</p>
             </a>
 
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./typography.html">
+            <a class="nav-link" href="<?php echo base_url()?>main/grievance">
               <i class="material-icons">library_books</i>
               <p>Grievance</p>
             </a>
@@ -75,15 +75,15 @@ The above copyright notice and this permission notice shall be included in all c
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./map.html">
-              <i class="material-icons">location_ons</i>
+            <a class="nav-link" href="<?php echo base_url()?>main/leaveapplication">
+              <i class="material-icons">home</i>
               <p>Leave Management</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./notifications.html">
+            <a class="nav-link" href="<?php echo base_url()?>main/pdf">
               <i class="material-icons">notifications</i>
-              <p>Notifications</p>
+              <p>Study materials</p>
             </a>
           </li>
         </ul>
@@ -145,10 +145,9 @@ The above copyright notice and this permission notice shall be included in all c
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="#">Profile</a>
-                  <a class="dropdown-item" href="#">Settings</a>
+                  <a class="dropdown-item" href="<?php echo base_url()?>main/updatestud">Profile</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Log out</a>
+                  <a class="dropdown-item" href="<?php echo base_url()?>main/logout">Log out</a>
                 </div>
               </li>
             </ul>
