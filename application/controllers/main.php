@@ -18,15 +18,8 @@ class main extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 // */
-  //  @function name:log**
-  //    *@function:viewing login form
-  //    @author:Varsha S
-  //   **@date:04/03/2021*
-    // public function log()
-    // {
-    //     $this->load->view('login');
-    // }
-    /*@function name:log**
+ 
+    /*@function name:loginaction+**
      *@function:login process
      @author:Varsha S
     **@date:04/03/2021**/
@@ -105,6 +98,7 @@ class main extends CI_Controller {
          }
          else
          {
+		 redirect('main/index','refresh'); 
          }  
     }   
      /*@function name:adminindex**
@@ -138,7 +132,7 @@ public function grievance()
    }
    else
    {
-     redirect('main/log','refresh');
+     redirect('main/index','refresh');
    }
  }
   /*@function name:grievanceaction**
@@ -169,7 +163,7 @@ public function grievanceaction()
   }
   else
   {
-     redirect('main/log','refresh');
+     redirect('main/index','refresh');
   }
 }
   /*
@@ -188,7 +182,7 @@ public function leaveapplication()
    }
    else
    {
-    redirect('main/log','refresh');
+    redirect('main/index','refresh');
    }
  }
  /*@function name:leave_action**
@@ -239,7 +233,7 @@ public function leave_action()
 }
 else
 {
-  redirect('main/log','refresh');
+  redirect('main/index','refresh');
 }
 }
 
@@ -258,7 +252,7 @@ else
         }
         else
         {
-          redirect('');
+          redirect('main/index','refresh');
         }
       }
    /*@function name:studinsert**
@@ -357,7 +351,7 @@ else
        }
        else
       {
-       redirect(base_url().'main/log');
+       redirect(base_url().'main/index','refresh');
        }
     } 
      
@@ -377,7 +371,7 @@ else
         }
         else
         {
-           redirect(base_url().'main/log');
+           redirect(base_url().'main/index','refresh');
         }
                    
         }
@@ -421,18 +415,27 @@ public function updateaction()
     }
     else
     {
-          redirect(base_url().'main/log');
+          redirect(base_url().'main/index');
 
     }
   }
  /*@function name:adno**
+ 
     *@function:Page for selecting admission number**
      *@module:admin
     *@author:Varsha S
     **@date:06/03/2021**/
 public function adno()
 {
+ if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
+   {	
   $this->load->view('adno');
+   }
+	else
+	{
+		redirect(base_url().'main/index');
+	}
+	
 }
 /*@function name:resume**
     *@function:viewing short resume**
@@ -440,11 +443,20 @@ public function adno()
     *@author:Varsha S
     **@date:06/03/2021**/
 public function resume()
-{
+{ 
+	if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
+           {
             $this->load->model('mainmodel');
             $id=$this->input->post("ad_no");
             $data['user_data']=$this->mainmodel->resume($id);
             $this->load->view("shortresume",$data);
+             
+	   }
+	else
+	{
+		redirect(base_url().'main/index');
+	}
+	
 }
 /*****@author:revathy*****/
 /***@date:05/03/2021**/
@@ -453,13 +465,23 @@ public function resume()
 
 public function upload()
 {
-$this->load->view('fileupload');
+	if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
+           {
+                $this->load->view('fileupload');
+            }
+	else
+	{
+		redirect(base_url().'main/index');
+	}
+	
 }
 /*****@@author:revathy*****/
 /***@date:05/03/2021**/
 /***@module:trainer ***/
 /***@function: uploading course materials***/
 public function fileupload()
+{
+if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
 {
 
 $this->load->library('form_validation');
@@ -488,13 +510,22 @@ $this->mainmodel->uploadfile($a);
 redirect(base_url().'main/upload');
 
 }
+} 
+	else
+        {
+           redirect(base_url().'main/index','refresh');
+        }
+                   
+        }
 /*****@author:revathy*****/
 /***@date:05/03/2021**/
 /***@module:trainer module***/
 /***@function:course materials***/
 
 public function pdf()
-{ $this->load->model('mainmodel');
+{ 
+	
+$this->load->model('mainmodel');
 $data['n']=$this->mainmodel->view_materials();
 $this->load->view('pdfview',$data);
 }
