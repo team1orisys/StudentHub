@@ -41,51 +41,64 @@
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-      
+          TRAINER
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item active  ">
-            <a class="nav-link" href="<?php echo base_url()?>main/studindex">
+            <a class="nav-link" href="<?php echo base_url()?>main/trainerindex">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="<?php echo base_url()?>main/updatestud">
+            <a class="nav-link" href="<?php echo base_url()?>main/addstudent">
               <i class="material-icons">person</i>
-              <p>Student Profile</p>
+              <p>Add Student Profile</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="<?php echo base_url()?>main/selectadno">
+            <a class="nav-link" href="<?php echo base_url()?>main/addmark">
               <i class="material-icons">content_paste</i>
-              <p>My Performance</p>
+              <p>Add marks</p>
+            </a>
+
+          </li>
+           <li class="nav-item ">
+            <a class="nav-link" href="<?php echo base_url()?>main/selectadno2">
+              <i class="material-icons">content_paste</i>
+              <p>view marks</p>
             </a>
 
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="<?php echo base_url()?>main/grievance">
+            <a class="nav-link" href="<?php echo base_url()?>main/viewgrievance2">
               <i class="material-icons">library_books</i>
               <p>Grievance</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="<?php echo base_url()?>main/rules">
+            <a class="nav-link" href="<?php echo base_url()?>main/rules1">
               <i class="material-icons">bubble_chart</i>
               <p>Rules & Regulations</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="<?php echo base_url()?>main/leaveapplication">
-              <i class="material-icons">home</i>
-              <p>Leave Management</p>
+            <li class="nav-item ">
+            <a class="nav-link" href="<?php echo base_url()?>main/view_leave">
+              <i class="material-icons">location_ons</i>
+              <p>View Students Leave</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="<?php echo base_url()?>main/pdf">
-              <i class="material-icons">notifications</i>
-              <p>Study materials</p>
+            <a class="nav-link" href="<?php echo base_url()?>main/trainerleave">
+              <i class="material-icons">location_ons</i>
+              <p>Apply Leave</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link"href="<?php echo base_url()?>main/upload">
+              <i class="material-icons">notification</i>
+              <p>Add study notification</p>
             </a>
           </li>
         </ul>
@@ -124,7 +137,7 @@
       </nav>
 
 
-    <form action="<?php echo base_url()?>main/viewmarks" method="post">
+    <form action="<?php echo base_url()?>main/viewmarks2" method="post">
     <div class="page-wrapper bg-dark p-t-100 p-b-50">
         <div class="wrapper wrapper--w900">
             <div class="card card-6">
