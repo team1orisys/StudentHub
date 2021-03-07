@@ -262,7 +262,7 @@ else
     **@date:05/03/2021**/
     public function studinsert()
     {
-       if($_SESSION['logged_in']==true && $_SESSION['usertype']=='1')
+       if($_SESSION['logged_in']==true && $_SESSION['usertype']=='2')
          {
         $this->load->library('form_validation');
         $this->form_validation->set_rules("name","name",'required');
@@ -465,7 +465,7 @@ public function resume()
 
 public function upload()
 {
-	if($_SESSION['logged_in']==true && $_SESSION['usertype']=='1')
+	if($_SESSION['logged_in']==true && $_SESSION['usertype']=='2')
            {
                 $this->load->view('fileupload');
             }
@@ -481,7 +481,7 @@ public function upload()
 /***@function: uploading course materials***/
 public function fileupload()
 {
-if($_SESSION['logged_in']==true && $_SESSION['usertype']=='1')
+if($_SESSION['logged_in']==true && $_SESSION['usertype']=='2')
 {
 
 $this->load->library('form_validation');
@@ -966,6 +966,32 @@ else
       {
 	  redirect(base_url().'main/index');
        }
-     }	
+}	
+/**********trainerview grievance
+  @author:revathy
+  @5/03/2021
+  @module trainer
+  @view grievance
+  ********/
+    public function viewgrievance2()
+    {
+        $this->load->model('mainmodel');
+        $data['n']=$this->mainmodel->viewgrievance2();
+        $this->load->view('tr_view_grievance',$data);
+    }  
+public function rules()
+{
+  $this->load->view('rules');
+}
+  public function rules1()
+{
+  $this->load->view('rules1');
+}
+public function rules2()
+{
+  $this->load->view('rules2');
+
+}
+
 
 }
