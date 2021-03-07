@@ -182,10 +182,19 @@ public function viewmarks($id)
       $qry=$this->db->where("ad_no",$id);
       $qry=$this->db->get("performance");
       return $qry;
+
   // $this->db->select('*');
   // $this->db->join('student','student.id=performance.ad_no','inner');
   // $qry=$this->db->get("performance");
   // return $qry;
+}
+
+public function viewmarks_tr($id)
+{
+      $this->db->select('*');
+      $qry=$this->db->where("ad_no",$id);
+      $qry=$this->db->get("performance");
+      return $qry;
 }
 
 //     $qry=$this->db->get("performance");
