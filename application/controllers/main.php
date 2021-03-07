@@ -1,23 +1,24 @@
+ 
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class main extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 // */
+  /**
+   * Index Page for this controller.
+   *
+   * Maps to the following URL
+   *    http://example.com/index.php/welcome
+   *  - or -
+   *    http://example.com/index.php/welcome/index
+   *  - or -
+   * Since this controller is set as the default controller in
+   * config/routes.php, it's displayed at http://example.com/
+   *
+   * So any other public methods not prefixed with an underscore will
+   * map to /index.php/welcome/<method_name>
+   * @see https://codeigniter.com/user_guide/general/urls.html
+   // */
  
     /*@function name:loginaction+**
      *@function:login process
@@ -98,7 +99,7 @@ class main extends CI_Controller {
          }
          else
          {
-		  redirect(base_url().'main/index');
+      redirect(base_url().'main/index');
          }  
     }   
      /*@function name:adminindex**
@@ -428,14 +429,14 @@ public function updateaction()
 public function adno()
 {
  if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
-   {	
+   {  
   $this->load->view('adno');
    }
-	else
-	{
-		redirect(base_url().'main/index');
-	}
-	
+  else
+  {
+    redirect(base_url().'main/index');
+  }
+  
 }
 /*@function name:resume**
     *@function:viewing short resume**
@@ -444,19 +445,19 @@ public function adno()
     **@date:06/03/2021**/
 public function resume()
 { 
-	if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
+  if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
            {
             $this->load->model('mainmodel');
             $id=$this->input->post("ad_no");
             $data['user_data']=$this->mainmodel->resume($id);
             $this->load->view("shortresume",$data);
              
-	   }
-	else
-	{
-		redirect(base_url().'main/index');
-	}
-	
+     }
+  else
+  {
+    redirect(base_url().'main/index');
+  }
+  
 }
 /*****@author:revathy*****/
 /***@date:05/03/2021**/
@@ -465,15 +466,15 @@ public function resume()
 
 public function upload()
 {
-	if($_SESSION['logged_in']==true && $_SESSION['usertype']=='2')
+  if($_SESSION['logged_in']==true && $_SESSION['usertype']=='2')
            {
                 $this->load->view('fileupload');
             }
-	else
-	{
-		redirect(base_url().'main/index');
-	}
-	
+  else
+  {
+    redirect(base_url().'main/index');
+  }
+  
 }
 /*****@@author:revathy*****/
 /***@date:05/03/2021**/
@@ -510,8 +511,8 @@ $this->mainmodel->uploadfile($a);
 redirect(base_url().'main/upload');
 
 }
-} 
-	else
+
+  else
         {
             redirect(base_url().'main/index');
         }
@@ -524,7 +525,7 @@ redirect(base_url().'main/upload');
 
 public function pdf()
 { 
-if($_SESSION['logged_in']==true && $_SESSION['usertype']=='1')
+if($_SESSION['logged_in']==true && $_SESSION['usertype']=='1'|'2')
 {
 $this->load->model('mainmodel');
 $data['n']=$this->mainmodel->view_materials();
@@ -544,9 +545,9 @@ else
 
 public function view_leave()
 { 
-	
+  
 if($_SESSION['logged_in']==true && $_SESSION['usertype']=='2')
-{	
+{ 
   $this->load->model('mainmodel');
   $data['n']=$this->mainmodel->leaveview();
   $this->load->view('appliedleave',$data);
@@ -560,17 +561,17 @@ else
 
 public function view_leave2()
 {
-	
+  
 if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
-{	
+{ 
   $this->load->model('mainmodel');
   $data['n']=$this->mainmodel->leaveview2();
   $this->load->view('trainerleaveview',$data);
 }
-	else
-	{
-		redirect(base_url().'main/index');
-	}
+  else
+  {
+    redirect(base_url().'main/index');
+  }
 }
 /********** and view grievance
   @author:asha
@@ -581,15 +582,15 @@ if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
    public function viewgrievance()
     {
 if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
-{	
+{ 
         $this->load->model('mainmodel');
         $data['n']=$this->mainmodel->viewgrievance();
         $this->load->view('addgrievanceview',$data);
     }  
-	else
-	{
-		redirect(base_url().'main/index');
-	}
+  else
+  {
+    redirect(base_url().'main/index');
+  }
 }
   /**********Add mark and view functions
   @author:asha
@@ -600,14 +601,14 @@ if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
   public function addmark()
 {
 if($_SESSION['logged_in']==true && $_SESSION['usertype']=='2')
-{	  
+{   
 
     $this->load->view('addmark');
 }
-	else
-	{
-		redirect(base_url().'main/index');
-	}
+  else
+  {
+    redirect(base_url().'main/index');
+  }
 }
 public function addmarkaction()
 {
@@ -658,7 +659,7 @@ if($_SESSION['logged_in']==true && $_SESSION['usertype']=='2')
   }
 else
 {
-	redirect(base_url().'main/index');
+  redirect(base_url().'main/index');
 }
 }
     /**********home page
@@ -686,12 +687,12 @@ if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
   }
 else
 {
-	redirect(base_url().'main/index');
+  redirect(base_url().'main/index');
 }
-}	  
+}   
   public function addtraineraction()
 {
-	  if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
+    if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
 {
 
     $this->load->library('form_validation');
@@ -730,9 +731,9 @@ else
   redirect(base_url().'main/addtrainer');
     }
 }
-	  else
+    else
 {
-	redirect(base_url().'main/index');
+  redirect(base_url().'main/index');
 }
 }
 /*@function name:viewtrainer**
@@ -744,15 +745,15 @@ else
 
          public function viewtrainer()
     {
-		 if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
+     if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
      {
         $this->load->model('mainmodel');
         $data['n']=$this->mainmodel->viewtrainer();
         $this->load->view('addtrainerview',$data);
     } 
-		   else
+       else
 {
-	redirect(base_url().'main/index');
+  redirect(base_url().'main/index');
 }
 }
 
@@ -786,19 +787,19 @@ else
     **@date:05/03/2021**/
      public function reject()
     {
-	   
-	     if($_SESSION['logged_in']==true && $_SESSION['usertype']=='2')
+     
+       if($_SESSION['logged_in']==true && $_SESSION['usertype']=='2')
                   {
-				$this->load->model('mainmodel');
-				$id=$this->uri->segment(3);
-				$this->mainmodel->reject($id);
-				redirect('main/view_leave','refresh');
+        $this->load->model('mainmodel');
+        $id=$this->uri->segment(3);
+        $this->mainmodel->reject($id);
+        redirect('main/view_leave','refresh');
                    }
-	   else
+     else
                 {
-	            redirect(base_url().'main/index');
+              redirect(base_url().'main/index');
                 }
-     }	     
+     }       
     /*@function name:approve**
     *@function:approval of student's leave request**
      *@module:trainer
@@ -806,7 +807,7 @@ else
     **@date:06/03/2021**/
       public function approve()
     {
-	       
+         
 if($_SESSION['logged_in']==true && $_SESSION['usertype']=='2')
   {
         $this->load->model('mainmodel');
@@ -816,9 +817,9 @@ if($_SESSION['logged_in']==true && $_SESSION['usertype']=='2')
     }   
    else
                 {
-	            redirect(base_url().'main/index');
+              redirect(base_url().'main/index');
                 }
-     }	     	      
+     }              
      /*@function name:tr_reject**
     *@function:rejecting trainer's leave request**
      *@module:admin
@@ -826,18 +827,18 @@ if($_SESSION['logged_in']==true && $_SESSION['usertype']=='2')
     **@date:06/03/2021**/
     public function tr_reject()
     {
-	    if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
+      if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
          {
         $this->load->model('mainmodel');
         $id=$this->uri->segment(3);
         $this->mainmodel->tr_reject($id);
         redirect('main/view_leave2','refresh');
          }
-	    else
+      else
                 {
-	            redirect(base_url().'main/index');
+              redirect(base_url().'main/index');
                 }
-     }	
+     }  
     /*@function name:tr_reject**
     *@function:approval of trainer's leave request**
      *@module:admin
@@ -845,18 +846,18 @@ if($_SESSION['logged_in']==true && $_SESSION['usertype']=='2')
     **@date:06/03/2021**/
       public function tr_approve()
     {
-	if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
+  if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
          {
         $this->load->model('mainmodel');
         $id=$this->uri->segment(3);
         $this->mainmodel->tr_approve($id);
         redirect('main/view_leave2','refresh');
     } 
-	        else
+          else
                 {
-	            redirect(base_url().'main/index');
+              redirect(base_url().'main/index');
                 }
-     }	
+     }  
   
   /*@function name:selectadno**
     *@function:for selecting admission number**
@@ -866,15 +867,26 @@ if($_SESSION['logged_in']==true && $_SESSION['usertype']=='2')
 public function selectadno()
 {
 if($_SESSION['logged_in']==true && $_SESSION['usertype']=='1')
-{	
+{ 
   $this->load->view('selectadno');
 }
  else
       {
-	  redirect(base_url().'main/index');
+    redirect(base_url().'main/index');
        }
-     }	
-  	
+     }  
+public function selectadno2()
+{
+if($_SESSION['logged_in']==true && $_SESSION['usertype']=='2')
+{ 
+  $this->load->view('selectadno_trainer');
+}
+ else
+      {
+    redirect(base_url().'main/index');
+       }
+     }  
+    
 /*@function name:viewmarks**
     *@function:viewing marks**
      *@module:student
@@ -886,16 +898,31 @@ public function viewmarks()
 if($_SESSION['logged_in']==true && $_SESSION['usertype']=='1')
 {
             $this->load->model('mainmodel');
-            $id=$this->input->post("ad_no");
+            $id=$this->input->post("adno");
             $data['user_data']=$this->mainmodel->viewmarks($id);
             $this->load->view("addmarkview",$data);
 }
-	 else
+   else
       {
-	  redirect(base_url().'main/index');
+    redirect(base_url().'main/index');
        }
-     }	
-  	
+     }  
+
+  public function viewmarks2()
+{      
+if($_SESSION['logged_in']==true && $_SESSION['usertype']=='2')
+{
+            $this->load->model('mainmodel');
+            $id=$this->input->post("adno");
+            $data['user_data']=$this->mainmodel->viewmarks_tr($id);
+            $this->load->view("markview_tr",$data);
+}
+   else
+      {
+    redirect(base_url().'main/index');
+       }
+     }  
+    
 
     /*@function name:trainerleave**
     @function:viewing leave form
@@ -905,15 +932,15 @@ if($_SESSION['logged_in']==true && $_SESSION['usertype']=='1')
 
 public function trainerleave()
 {
-if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
+if($_SESSION['logged_in']==true && $_SESSION['usertype']=='2')
 {
 $this->load->view('trainerleave');
 }
-	else
+  else
       {
-	  redirect(base_url().'main/index');
+    redirect(base_url().'main/index');
        }
-     }	
+     }  
     /*@function name:tr_leave_action**
     @function:inserting leave details
      *@module:trainer,student
@@ -921,7 +948,7 @@ $this->load->view('trainerleave');
     **@date:06/03/2021**/
 public function tr_leave_action()
 {
-if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
+if($_SESSION['logged_in']==true && $_SESSION['usertype']=='2')
 {
 $this->load->library('form_validation');
 $this->form_validation->set_rules("leavetype","leavetype",'required');
@@ -964,9 +991,9 @@ redirect(base_url().'main/leaveapplication');
 
 else
       {
-	  redirect(base_url().'main/index');
+    redirect(base_url().'main/index');
        }
-}	
+} 
 /**********trainerview grievance
   @author:revathy
   @5/03/2021
@@ -975,23 +1002,52 @@ else
   ********/
     public function viewgrievance2()
     {
-        $this->load->model('mainmodel');
-        $data['n']=$this->mainmodel->viewgrievance2();
-        $this->load->view('tr_view_grievance',$data);
-    }  
+      if($_SESSION['logged_in']==true && $_SESSION['usertype']=='2')
+        {
+
+              $this->load->model('mainmodel');
+              $data['n']=$this->mainmodel->viewgrievance2();
+              $this->load->view('tr_view_grievance',$data);
+        }  
+        else
+      {
+    redirect(base_url().'main/index');
+       }
+} 
 public function rules()
 {
-  $this->load->view('rules');
-}
+  if($_SESSION['logged_in']==true && $_SESSION['usertype']=='1')
+        {
+             $this->load->view('rules');
+        }
+     else
+      {
+    redirect(base_url().'main/index');
+       }
+}        
   public function rules1()
 {
-  $this->load->view('rules1');
-}
+  if($_SESSION['logged_in']==true && $_SESSION['usertype']=='2')
+        {
+         $this->load->view('rules1');
+        }
+    else
+      {
+    redirect(base_url().'main/index');
+       }
+}          
 public function rules2()
 {
-  $this->load->view('rules2');
+  if($_SESSION['logged_in']==true && $_SESSION['usertype']=='0')
+        {
+           $this->load->view('rules2');
 
-}
+      }
+      else
+      {
+    redirect(base_url().'main/index');
+       }
+}         
 
 
 }
