@@ -205,6 +205,18 @@ public function viewmarks($id)
      $qry=$this->db->get("grievances");
        return $qry;
 }
+ /**********Grievance page
+  @revathy
+  @5/03/2021
+  @module student
+  @view complaint
+  ********/
+ public function viewgrievance2()
+{
+       $this->db->select('*');
+     $qry=$this->db->get("grievances");
+       return $qry;
+}
 
 /**********add trainer page
   @asha
